@@ -77,5 +77,4 @@ class KafkaService<T>(
     override fun close() {
         this.consumer.close(Duration.ofSeconds(10))
     }
-
 }

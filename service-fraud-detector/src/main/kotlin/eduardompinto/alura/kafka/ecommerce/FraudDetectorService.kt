@@ -28,18 +28,12 @@ class FraudDetectorService {
         println("Order processed")
         println("------------------------------------------")
     }
-    
+
     fun run() = service.use { it.run() }
 
     private fun isFraud(order: Order) = order.amount > 4500.toBigDecimal()
-
 }
-
 
 fun main() {
     FraudDetectorService().run()
 }
-
-
-
-

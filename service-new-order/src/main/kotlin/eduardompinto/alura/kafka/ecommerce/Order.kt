@@ -1,7 +1,6 @@
 package eduardompinto.alura.kafka.ecommerce
 
 import java.math.BigDecimal
-import java.math.RoundingMode
 import java.util.UUID
 
 data class Order(

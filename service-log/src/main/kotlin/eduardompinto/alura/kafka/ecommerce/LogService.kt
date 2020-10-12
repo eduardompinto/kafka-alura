@@ -6,7 +6,6 @@ import java.util.regex.Pattern
 
 class LogService
 
-
 fun main() {
     kafkaService<String>(
         consumerGroup = LogService::class.java.simpleName,
@@ -24,6 +23,3 @@ fun main() {
         println("------------------------------------------")
     }.use { it.run() }
 }
-
-
-

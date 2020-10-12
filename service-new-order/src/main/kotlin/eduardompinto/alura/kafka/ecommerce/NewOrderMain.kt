@@ -18,7 +18,6 @@ private fun sendNewOrderMessage(dispatcher: KafkaDispatcher<Order>) = with(Order
     dispatcher.send(topic = NEW_ORDER_TOPIC, value = this)
 }
 
-
 private fun sendEmailMessage(dispatcher: KafkaDispatcher<Email>) = with(
     Email(
         subject = "Your order!",
@@ -27,5 +26,3 @@ private fun sendEmailMessage(dispatcher: KafkaDispatcher<Email>) = with(
 ) {
     dispatcher.send(topic = SEND_EMAIL_TOPIC, value = this)
 }
-
-

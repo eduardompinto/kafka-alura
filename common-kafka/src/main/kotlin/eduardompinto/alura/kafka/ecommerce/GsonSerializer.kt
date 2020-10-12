@@ -10,5 +10,4 @@ class GsonSerializer<T> : Serializer<T> {
     override fun serialize(topic: String?, data: T): ByteArray {
         return gson.toJson(data).toByteArray()
     }
-
 }

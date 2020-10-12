@@ -3,7 +3,6 @@ package eduardompinto.alura.kafka.ecommerce
 import com.google.gson.GsonBuilder
 import org.apache.kafka.common.serialization.Deserializer
 
-
 class GsonDeserializer<T> : Deserializer<T> {
 
     private val gson = GsonBuilder().create()
@@ -22,5 +21,4 @@ class GsonDeserializer<T> : Deserializer<T> {
             configs!!.getOrDefault(TYPE_CONFIG, String::class.java.name) as String
         type = Class.forName(typeName) as Class<T>
     }
-
 }

@@ -13,11 +13,13 @@ import java.util.Properties
 
 class KafkaDispatcher<T> : Closeable {
 
-    private val producer = KafkaProducer<String, T>(Properties().apply {
-        this[BOOTSTRAP_SERVERS_CONFIG] = "127.0.0.1:9092"
-        this[KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java.name
-        this[VALUE_SERIALIZER_CLASS_CONFIG] = GsonSerializer::class.java.name
-    })
+    private val producer = KafkaProducer<String, T>(
+        Properties().apply {
+            this[BOOTSTRAP_SERVERS_CONFIG] = "127.0.0.1:9092"
+            this[KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java.name
+            this[VALUE_SERIALIZER_CLASS_CONFIG] = GsonSerializer::class.java.name
+        }
+    )
 
     private val callback = Callback { data, ex ->
         if (ex != null) {
