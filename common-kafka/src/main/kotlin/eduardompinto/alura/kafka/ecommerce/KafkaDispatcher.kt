@@ -2,6 +2,8 @@ package eduardompinto.alura.kafka.ecommerce
 
 import org.apache.kafka.clients.producer.Callback
 import org.apache.kafka.clients.producer.KafkaProducer
+import org.apache.kafka.clients.producer.ProducerConfig.ACKS_CONFIG
+import org.apache.kafka.clients.producer.ProducerConfig.ACKS_DOC
 import org.apache.kafka.clients.producer.ProducerConfig.BOOTSTRAP_SERVERS_CONFIG
 import org.apache.kafka.clients.producer.ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG
 import org.apache.kafka.clients.producer.ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG
@@ -18,6 +20,10 @@ class KafkaDispatcher<T> : Closeable {
             this[BOOTSTRAP_SERVERS_CONFIG] = "127.0.0.1:9092"
             this[KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java.name
             this[VALUE_SERIALIZER_CLASS_CONFIG] = GsonSerializer::class.java.name
+            /**
+             *  @see ACKS_DOC
+             */
+            this[ACKS_CONFIG] = "all"
         }
     )
 
@@ -27,8 +33,8 @@ class KafkaDispatcher<T> : Closeable {
         } else {
             with(data) {
                 println(
-                    "Sent to topic ${topic()}:::partition ${partition()}/ offset " +
-                        "${offset()}/ timestamp ${timestamp()}"
+                    "Sent to topic ${topic()}:::partition ${partition()}/offset " +
+                        "${offset()}/timestamp ${timestamp()}"
                 )
             }
         }
