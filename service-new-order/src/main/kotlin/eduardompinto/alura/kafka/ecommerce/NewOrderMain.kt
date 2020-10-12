@@ -4,6 +4,7 @@ const val NEW_ORDER_TOPIC = "ECOMMERCE_NEW_ORDER"
 const val SEND_EMAIL_TOPIC = "ECOMMERCE_SEND_EMAIL"
 
 class NewOrderMain {
+
     private val order = Order()
     private val email = Email(
         subject = "Your order!",
