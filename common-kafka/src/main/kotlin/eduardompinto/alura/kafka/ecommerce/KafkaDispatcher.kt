@@ -37,6 +37,11 @@ class KafkaDispatcher<T> : Closeable {
         producer.send(record, callback).get()
     }
 
+    fun send(topic: String, value: T) {
+        val record = ProducerRecord(topic, value.hashCode().toString(), value)
+        producer.send(record, callback).get()
+    }
+
     override fun close() {
         this.producer.close(Duration.ofSeconds(10))
     }
