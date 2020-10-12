@@ -1,0 +1,11 @@
+group 'eduardompinto'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation"org.xerial:sqlite-jdbc:3.32.3.2"
+    implementation project(":common-kafka")
+}
