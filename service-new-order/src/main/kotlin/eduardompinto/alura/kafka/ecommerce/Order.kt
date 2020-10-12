@@ -7,5 +7,5 @@ import java.util.UUID
 data class Order(
     private val userId: String = UUID.randomUUID().toString(),
     private val orderId: String = UUID.randomUUID().toString(),
-    private val amount: BigDecimal = (Math.random() * 5000 + 1).toBigDecimal().setScale(2, RoundingMode.HALF_UP)
+    private val amount: BigDecimal = (Math.random() * 10000 + 1).toBigDecimal()
 )
